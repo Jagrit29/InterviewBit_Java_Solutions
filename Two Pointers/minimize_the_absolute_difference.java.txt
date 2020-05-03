@@ -1,0 +1,34 @@
+public class Solution {
+    public int solve(ArrayList<Integer> A, ArrayList<Integer> B, ArrayList<Integer> C) {
+        int a1=0;
+        int b1=0;
+        int c1=0;
+        
+        int minAbs=Integer.MAX_VALUE;
+        
+        while(a1<A.size() && b1<B.size() && c1<C.size())
+        {
+            int min=Math.min(A.get(a1),Math.min(B.get(b1),C.get(c1)));
+            int max=Math.max(A.get(a1),Math.max(B.get(b1),C.get(c1)));
+            
+            int abs=Math.abs(max-min);
+            minAbs=Math.min(abs,minAbs);
+            
+            if(min==A.get(a1))
+            {
+                a1++;
+            }
+            else if(min==B.get(b1))
+            {
+                b1++;
+            }
+            else
+            {
+                c1++;
+            }
+        }
+        return minAbs;
+        
+        
+    }
+}
